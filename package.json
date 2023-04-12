@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "servor": "^4.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.38.0",
+    "eslint-config-google": "^0.14.0",
+    "stylelint-config-standard": "^32.0.0"
+  }
+}
