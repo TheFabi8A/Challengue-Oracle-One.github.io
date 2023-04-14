@@ -4,27 +4,6 @@
     box-sizing: border-box;
 }
 
-:root {
-    /* dark */
-    --dark-green-1: #2f3e46;
-    --dark-green-2: #354f52;
-    --dark-green-3: #52796f;
-    --dark-green-4: #84a98c;
-    --dark-green-5: #cad2c5;
-
-    /* light */
-    --light-brown-1: #b2967d;
-    --light-brown-2: #e6beae;
-    --light-brown-3: #e7d8c9;
-    --light-brown-4: #eee4e1;
-    --light-brown-5: #ecf8f8;
-
-    /* fonts */
-    --font-800: poppins-extrabold, sans-serif;
-    --font-700: poppins-bold, sans-serif;
-    --font-400: poppins-regular, sans-serif;
-}
-
 @font-face {
     font-family: poppins-extrabold;
     src: url('assets/fonts/Poppins-ExtraBold.ttf')format('truetype');
@@ -48,11 +27,14 @@ html {
     justify-content: center;
 }
 
+body {
+    padding-bottom: 2rem;
+}
+
 h1 {
     font-size: 1.6rem;
     font-family: var(--font-400);
     text-transform: capitalize;
-    color: var(--dark-grayish-violet);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -74,48 +56,65 @@ button {
 }
 
 textarea {
-    color: var(--dark-green-4);
+    border: none;
+    border-radius: 0.625rem;
     font-family: var(--font-400);
+    font-size: 1.1rem;
     padding: 1.5rem;
     width: 100%;
     resize: none;
     min-height: 50vh;
 }
 
-.alura-icon {
+textarea::placeholder {
+    padding-left: 0.5rem;
+}
+
+:root {
+    --dark-green-1: #2f3e46;
+    --dark-green-2: #354f52;
+    --dark-green-3: #52796f;
+    --dark-green-4: #84a98c;
+    --dark-green-5: #cad2c5;
+    --light-brown-1: #b2967d;
+    --light-brown-2: #e6beae;
+    --light-brown-3: #e7d8c9;
+    --light-brown-4: #eee4e1;
+    --light-brown-5: #ecf8f8;
+    --font-800: poppins-extrabold, sans-serif;
+    --font-700: poppins-bold, sans-serif;
+    --font-400: poppins-regular, sans-serif;
+}
+
+.alura-icon-container {
     position: absolute;
-    left: 1rem;
-    top: 1rem;
+    left: 1.5rem;
+    top: 1.5rem;
 }
 
 .main {
+    position: relative;
     display: flex;
     flex-direction: column;
-    margin-top: 5rem;
-    padding: 1.5rem;
-    gap: 3rem;
-}
-
-input[type="text"] {
-    background: none;
-    border: none;
-    overflow: hidden;
+    padding: 0 1.5rem;
+    padding-top: 6rem;
 }
 
 .form-user-action {
     min-width: 100%;
-    display: inline-block;
 }
 
 .container-autor {
     display: flex;
-    max-width: 155px;
+    max-width: 10rem;
     gap: 1.25rem;
     border-radius: 0.625rem;
     padding: 1.25rem;
+    box-shadow: 0.5rem 0.5rem 0 0 #000;
+    margin-top: 1.5rem;
 }
 
-.socials-svg {
+.socials-container {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -134,7 +133,7 @@ input[type="text"] {
     text-transform: capitalize;
 }
 
-.important-svg-container {
+.important-svg {
     width: 2.25rem;
 }
 
@@ -142,48 +141,29 @@ input[type="text"] {
     display: flex;
     align-items: center;
     gap: 1rem;
-}
-
-.message-error {
     font-family: var(--font-400);
-    color: var(--dark-green-5);
     margin: 1.25rem 0;
 }
 
-.btn-form {
-    width: 100%;
-    background-color: var(--dark-green-3);
-    color: var(--dark-green-5);
-    padding: 1rem;
-    border: 1px solid var(--dark-green-5);
-    border-radius: 0.625rem;
-    text-transform: uppercase;
-    font-family: var(--font-700);
-    font-size: 1.2rem;
-}
-
-.btn-form:first-child {
-    background-color: var(--dark-green-1);
-}
-
-.btn-form:first-child:hover {
-    background-color: var(--dark-green-2);
+.btn-copy {
+    margin: 1.5rem 0;
 }
 
 .container-buttons {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .container-error-input-empty {
     display: flex;
+    margin: 1.5rem 0;
     flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 1.5rem;
     border-radius: 0.625rem;
-    border: 3px solid var(--dark-green-5);
     padding: 1.75rem 1rem;
 }
 
@@ -196,18 +176,92 @@ input[type="text"] {
     font-family: var(--font-400);
 }
 
+.btn-form {
+    position: relative;
+    box-shadow: 0.5rem 0.5rem 0 0 #000;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.625rem;
+    text-transform: uppercase;
+    font-family: var(--font-700);
+    font-size: 1.2rem;
+}
+
 .hidden {
     display: none;
 }
 
+.textarea-user {
+    margin-bottom: 1.5rem;
+}
+
+.btn-form:active {
+    box-shadow: none;
+    left: 0.5rem;
+    top: 0.5rem;
+}
+
 @media screen and (prefers-color-scheme: light) {
     body {
-        background-color: var(--grayish-blue);
+        background-color: var(--light-brown-2);
+    }
+
+    h1 {
+        color: var(--light-grayish-violet);
+    }
+
+    textarea {
+        color: var(--light-brown-4);
+        background-color: var(--light-brown-1);
+    }
+
+    textarea::placeholder {
+        color: var(--light-brown-5);
+    }
+
+    .container-error-input-empty {
+        border: 3px solid var(--light-brown-5);
+    }
+
+    .btn-copy {
+        color: var(--light-brown-1);
     }
 
     .important-icon {
-        fill: var(--light-brown-1);
+        fill: var(--light-brown-4);
     }
+
+    .container-autor {
+        background-color: var(--light-brown-1);
+        color: var(--light-brown-5);
+        border: 3px solid var(--light-brown-5);
+    }
+    
+    textarea:focus {
+        border: none;
+        outline:3px solid var(--light-brown-4);
+    }
+    
+    .btn-form:first-child {
+        background-color: var(--light-brown-1);
+        border: 3px solid var(--light-brown-5);
+        color: var(--light-brown-5);
+    }
+
+    .btn-form:nth-child(2) {
+        border: 3px solid var(--light-brown-1);
+        background-color: var(--light-brown-4);
+        color: var(--light-brown-1);
+    }
+    
+    .btn-form:first-child:hover {
+        background-color: var(--light-brown-2);
+    }
+
+    .btn-form:nth-child(2):hover {
+        background-color: var(--light-brown-3);
+    }
+    
 }
 
 @media screen and (prefers-color-scheme: dark) {
@@ -215,7 +269,12 @@ input[type="text"] {
         background-color: var(--dark-green-2);
     }
 
+    h1 {
+        color: var(--dark-grayish-violet);
+    }
+
     textarea {
+        color: var(--dark-green-4);
         background-color: var(--dark-green-1);
     }
 
@@ -223,28 +282,90 @@ input[type="text"] {
         color: var(--dark-green-5);
     }
 
-    .important-icon {
-        fill: var(--dark-green-4);
+    .container-error-input-empty {
+        border: 3px solid var(--dark-green-5);
     }
 
-    .btn-form {
-        border: 3px solid var(--dark-green-5);
+    .message-error {
+        color: var(--dark-green-5);
+    }
+
+    .important-icon {
+        fill: var(--dark-green-4);
     }
 
     .container-autor {
         background-color: var(--dark-green-1);
         color: var(--dark-green-5);
         border: 3px solid var(--dark-green-5);
-        box-shadow: 0.5rem 0.5rem 0 0 #000;
     }
+
+    .btn-copy {
+        color: var(--dark-green-1);
+    }
+
+    textarea:focus {
+        border: none;
+        outline:3px solid var(--dark-green-4);
+    }
+
+    .btn-form:first-child {
+        background-color: var(--dark-green-1);
+        border: 3px solid var(--dark-green-5);
+        color: var(--dark-green-5);
+    }
+
+    .btn-form:nth-child(2) {
+        border: 3px solid var(--dark-green-4);
+        background-color: var(--dark-green-1);
+        color: var(--dark-green-4);
+    }
+    
+    .btn-form:first-child:hover {
+        background-color: var(--dark-green-2);
+    }
+
+    .btn-form:nth-child(2):hover {
+        background-color: var(--dark-green-2);
+    }
+
 }
 
 @media screen and (width >= 48rem) {
-    .alura-icon {
-        position: fixed;
+    textarea {
+        font-size: 1.25rem;
+    }
+
+    .container-buttons {
+        flex-direction: row;
     }
 }
 
 @media screen and (width >= 90rem) {
-    
+    body {
+        max-width: 90rem;
+    }
+
+    .main {
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(2,calc(50% - 0.75rem));
+        grid-template-rows: 600px 215px;
+        column-gap: 1.5rem;
+    }
+
+    .container-error-input-empty {
+        height: 100%;
+        margin: 0;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .empty-icon {
+        width: 8rem;
+    }
 }
+
+/* quitar desde js el margin bottom del textarea user cuando no deba mostrarse el comentario de error en escritura (no included) */
+
+/* desplazar a container-autor bottom -3.5rem cuando el usuario se equivoque en la escritura */
