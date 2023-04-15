@@ -64,6 +64,7 @@ textarea {
     width: 100%;
     resize: none;
     min-height: 50vh;
+    text-transform: lowercase;
 }
 
 textarea::placeholder {
@@ -120,8 +121,8 @@ textarea::placeholder {
     justify-content: space-evenly;
 }
 
-.social {
-    align-self: center;
+.social:nth-child(2) {
+    animation: animation-twitter 1.35s ease infinite normal backwards;
 }
 
 .img-social {
@@ -142,7 +143,7 @@ textarea::placeholder {
     align-items: center;
     gap: 1rem;
     font-family: var(--font-400);
-    margin: 1.25rem 0;
+    margin-bottom: 1.25rem;
 }
 
 .btn-copy {
@@ -261,7 +262,6 @@ textarea::placeholder {
     .btn-form:nth-child(2):hover {
         background-color: var(--light-brown-3);
     }
-    
 }
 
 @media screen and (prefers-color-scheme: dark) {
@@ -346,11 +346,14 @@ textarea::placeholder {
         max-width: 90rem;
     }
 
+    textarea {
+        min-height: auto;
+    }
+
     .main {
         margin: 0;
         display: grid;
         grid-template-columns: repeat(2,calc(50% - 0.75rem));
-        grid-template-rows: 600px 215px;
         column-gap: 1.5rem;
     }
 
@@ -366,6 +369,24 @@ textarea::placeholder {
     }
 }
 
-/* quitar desde js el margin bottom del textarea user cuando no deba mostrarse el comentario de error en escritura (no included) */
+/* quitar desde js el margin bottom del textarea-user cuando no deba mostrarse el comentario de error en escritura (no included) */
 
 /* desplazar a container-autor bottom -3.5rem cuando el usuario se equivoque en la escritura */
+
+@keyframes animation-twitter {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(75deg);
+    }
+
+    50% {
+        transform: rotate(-10deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
