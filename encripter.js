@@ -34,7 +34,7 @@ btnCript.addEventListener('click', () => {
 
   if (hasSpecialChars(text)) {
     msgError.classList.remove('hidden');
-    setTimeout(()=>{
+    setTimeout(() => {
       msgError.classList.add('hidden');
     }, 3000);
   } else {
@@ -45,7 +45,7 @@ btnCript.addEventListener('click', () => {
   if (textUser.value.length === 0) {
     textEmpty.classList.remove('hidden');
     containerResult.classList.add('hidden');
-    setTimeout(()=>{
+    setTimeout(() => {
       textEmpty.classList.add('hidden');
       containerResult.classList.remove('hidden');
     }, 5000);
@@ -59,7 +59,7 @@ btnUncript.addEventListener('click', () => {
 
   if (hasSpecialChars(text)) {
     msgError.classList.remove('hidden');
-    setTimeout(()=>{
+    setTimeout(() => {
       msgError.classList.add('hidden');
     }, 3000);
   } else {
@@ -70,7 +70,7 @@ btnUncript.addEventListener('click', () => {
   if (textUser.value.length === 0) {
     textEmpty.classList.remove('hidden');
     containerResult.classList.add('hidden');
-    setTimeout(()=>{
+    setTimeout(() => {
       textEmpty.classList.add('hidden');
       containerResult.classList.remove('hidden');
     }, 5000);
@@ -86,6 +86,10 @@ function hasSpecialChars(text) {
 function criptOrUncript(text, keys) {
   const regex = new RegExp(Object.keys(keys).join('|'), 'g');
   return text.replace(regex, (match) => keys[match]);
+}
+
+if (window.screen.width >= 1440) {
+  textUser.setAttribute('rows', '10');
 }
 
 

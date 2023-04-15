@@ -63,7 +63,7 @@ textarea {
     padding: 1.5rem;
     width: 100%;
     resize: none;
-    min-height: 50vh;
+    min-height: 25vh;
     text-transform: lowercase;
 }
 
@@ -143,11 +143,11 @@ textarea::placeholder {
     align-items: center;
     gap: 1rem;
     font-family: var(--font-400);
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
 }
 
 .btn-copy {
-    margin: 1.5rem 0;
+    margin-top: 1.5rem;
 }
 
 .container-buttons {
@@ -159,7 +159,7 @@ textarea::placeholder {
 
 .container-error-input-empty {
     display: flex;
-    margin: 1.5rem 0;
+    margin-bottom: 1.5rem;
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -350,6 +350,10 @@ textarea::placeholder {
         min-height: auto;
     }
 
+    .container-buttons {
+        margin-bottom: 0;
+    }
+
     .main {
         margin: 0;
         display: grid;
@@ -368,10 +372,6 @@ textarea::placeholder {
         width: 8rem;
     }
 }
-
-/* quitar desde js el margin bottom del textarea-user cuando no deba mostrarse el comentario de error en escritura (no included) */
-
-/* desplazar a container-autor bottom -3.5rem cuando el usuario se equivoque en la escritura */
 
 @keyframes animation-twitter {
     0% {
