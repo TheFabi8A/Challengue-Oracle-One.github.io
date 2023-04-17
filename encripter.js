@@ -78,15 +78,29 @@ btnUncript.addEventListener('click', () => {
   textResult.innerHTML = uncriptText;
 });
 
+/**
+ * Verifica si el texto contiene caracteres especiales.
+ *
+ * @param {string} text
+ * @return {boolean}
+ */
 function hasSpecialChars(text) {
   const specialChars = /[!@#$%^&*(),.?":{}|<>ñáéíóú]/g;
   return specialChars.test(text);
 }
 
+/**
+ * Texto encripta o desencripta reemplazando claves en un objeto..
+ *
+ * @param {string} text
+ * @param {Object} keys
+ * @return {string}
+ */
 function criptOrUncript(text, keys) {
   const regex = new RegExp(Object.keys(keys).join('|'), 'g');
   return text.replace(regex, (match) => keys[match]);
 }
+
 
 if (window.screen.width >= 1440) {
   textUser.setAttribute('rows', '10');
