@@ -30,16 +30,13 @@ btnCopy.addEventListener('click', () => {
 
 btnCript.addEventListener('click', () => {
   const text = textUser.value.toLowerCase();
-  const criptText = criptOrUncript(text, criptWords);
 
   if (hasSpecialChars(text)) {
     msgError.classList.remove('hidden');
     setTimeout(() => {
       msgError.classList.add('hidden');
     }, 3000);
-  } else {
-    const criptText = criptOrUncript(text, criptWords);
-    textResult.innerHTML = criptText;
+    return;
   }
 
   if (textUser.value.length === 0) {
@@ -49,22 +46,22 @@ btnCript.addEventListener('click', () => {
       textEmpty.classList.add('hidden');
       containerResult.classList.remove('hidden');
     }, 5000);
+    return;
   }
+
+  const criptText = criptOrUncript(text, criptWords);
   textResult.innerHTML = criptText;
 });
 
 btnUncript.addEventListener('click', () => {
   const text = textUser.value.toLowerCase();
-  const uncriptText = criptOrUncript(text, uncriptWords);
 
   if (hasSpecialChars(text)) {
     msgError.classList.remove('hidden');
     setTimeout(() => {
       msgError.classList.add('hidden');
     }, 3000);
-  } else {
-    const uncriptText = criptOrUncript(text, criptWords);
-    textResult.innerHTML = uncriptText;
+    return;
   }
 
   if (textUser.value.length === 0) {
@@ -74,7 +71,10 @@ btnUncript.addEventListener('click', () => {
       textEmpty.classList.add('hidden');
       containerResult.classList.remove('hidden');
     }, 5000);
+    return;
   }
+
+  const uncriptText = criptOrUncript(text, uncriptWords);
   textResult.innerHTML = uncriptText;
 });
 
@@ -100,7 +100,6 @@ function criptOrUncript(text, keys) {
   const regex = new RegExp(Object.keys(keys).join('|'), 'g');
   return text.replace(regex, (match) => keys[match]);
 }
-
 
 if (window.screen.width >= 1440) {
   textUser.setAttribute('rows', '10');
