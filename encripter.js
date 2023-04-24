@@ -13,6 +13,8 @@ const criptWords = {
   'i': 'imes',
   'o': 'ober',
   'u': 'ufat',
+  'ï': 'imes',
+  'ü': 'ufat',
 };
 
 const uncriptWords = {
@@ -26,6 +28,12 @@ const uncriptWords = {
 btnCopy.addEventListener('click', () => {
   const text = textResult.value;
   navigator.clipboard.writeText(text);
+  if (textUser.value.length !== 0) {
+    btnCopy.innerHTML = 'mensaje copiado !';
+    setTimeout(() => {
+      btnCopy.innerHTML = 'copiar';
+    }, 3000);
+  }
 });
 
 btnCript.addEventListener('click', () => {
